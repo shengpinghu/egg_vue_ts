@@ -10,8 +10,8 @@
 </template>
 <script>
 import './framework/vue/hooks/component-hooks'
+import 'element-ui/lib/theme-chalk/icon.css'
 import Layout from './component/layout/index.vue'
-import 'element-ui/lib/theme-chalk/index.css'
 export default {
   components: {
     Layout

@@ -2,7 +2,9 @@
 import { Application, EggAppConfig } from 'egg'
 
 export default (appInfo: EggAppConfig) => {
-  const exports: any = {}
-
-  return exports
+  const config: any = {}
+  config.env = {
+    apiHost: 'www.fangxinche.baixing.com'
+  }
+  return config
 }

@@ -9,14 +9,46 @@ module.exports = {
   entry: {
     'main': 'app/web/main.ts'
   },
-  lib: ['vue', 'vuex', 'vue-router', 'vuex-router-sync', 'axios'],
+  /* lib: ['vue', 'vuex', 'vue-router', 'vuex-router-sync', 'axios'],
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.json']
-  },
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.json', '.less']
+  }, */
   loaders: {
     babel: false,
     ts: true,
     less: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true,
+          getCustomTransformers: () => ({
+            before: [
+              tsImportPluginFactory([
+                {
+                  libraryName: 'vant',
+                  libraryDirectory: 'lib',
+                  style: true
+                },
+                {
+                  libraryName: 'element-ui',
+                  libraryDirectory: 'lib',
+                  camel2DashComponentName: true,
+                  style: pathname =>
+                    path.join('element-ui', 'lib', 'theme-chalk', `${camel2Dash(path.basename(pathname, '.js'))}.css`)
+                }
+              ])
+            ]
+          }),
+          compilerOptions: {
+            module: 'es2015'
+          }
+        }
+      }
+    ]
   },
   plugins: {
     copy: [{
