@@ -27,7 +27,6 @@ export default class App {
   }
 
   client () {
-    /* Vue.prototype.$http = require('axios') */
     const vm = this.create(window.__INITIAL_STATE__)
     vm.router.beforeEach((to, from, next) => {
       if (to.meta.title) {

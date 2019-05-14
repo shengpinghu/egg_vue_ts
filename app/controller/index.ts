@@ -13,7 +13,6 @@ export default class AdminController extends Controller {
     const { ctx } = this
     const { method, url, body } = ctx.request
     const HOST = this.app.config.env as any
-    console.log(HOST.apiHost)
     const res = await ctx.curl(`${HOST.apiHost}${url}`, {
       method,
       data: body,
