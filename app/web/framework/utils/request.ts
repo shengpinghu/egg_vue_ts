@@ -28,7 +28,7 @@ class Request {
         ...options.headers
       },
       timeout: 30 * 1000,
-      baseURL: this.origin
+      baseURL: location.origin
     })
     const res = await instance.request(options)
     const isOk = res.status < 400 && res.data && res.data.code === 0
@@ -42,8 +42,8 @@ class Request {
     return this.fetch<S>({ method: 'GET', url: `${url}?${qs.stringify(data)}`, headers })
   }
 
-  public postData<S> (url: string, data?: any): Promise<ResponseOptions<S>> {
-    return this.fetch<S>({ method: 'POST', url, data })
+  public postData<S> (url: string, data?: any, headers?: any, body?: any): Promise<ResponseOptions<S>> {
+    return this.fetch<S>({ method: 'POST', url, data, headers })
   }
 }
 

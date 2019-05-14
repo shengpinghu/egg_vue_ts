@@ -20,6 +20,5 @@ export default (appInfo: EggAppConfig) => {
   exports.vuessr = {
     injectCss: false
   }
-
   return exports
 };

@@ -10,7 +10,7 @@ const adminStore = namespace('admin')
     'el-button': Button
   }
 })
-export default class Home extends Vue {
+export default class Login extends Vue {
   form: Object = {
     name: 'admin',
     password: '123'
@@ -19,6 +19,6 @@ export default class Home extends Vue {
 
   onSubmit () {
     this.loading = true
-    this.$router.push('/home')
+    this.$router.push('/news')
   }
 }

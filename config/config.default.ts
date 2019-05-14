@@ -37,7 +37,7 @@ export default (appInfo: EggAppConfig) => {
     'global'
   ]
   config.env = {
-    apiHost: 'www.fangxinche.baixing.com'
+    apiHost: 'http://172.31.1.4:30815'
   }
 
   return config
